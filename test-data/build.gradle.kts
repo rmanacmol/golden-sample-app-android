@@ -9,6 +9,9 @@ android {
 
 dependencies {
     implementation(platform(backbase.bom))
+    implementation(foundationLibs.bundles.bomOutput)
+    implementation(midTierLibs.bundles.bomOutput)
+    implementation(clientLibs.bundles.bomOutput)
 
     implementation(libs.coroutinesTest)
     implementation(platform(libs.junit.bom))

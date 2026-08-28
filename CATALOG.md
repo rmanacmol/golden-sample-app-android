@@ -18,7 +18,7 @@ The minimal sample that includes all the required Backbase SDKs to get started t
 \
 **Status**: Maintained
 \
-LTS 25.09
+LTS 26.03
 
 ## [sample/cs/custom-authentication-flow](https://github.com/Backbase/golden-sample-app-android/tree/sample/cs/custom-authentication-flow)
 A sample implementation demonstrating a custom authentication flow for device registration, supporting both stateful and stateless authentication in an authentication journey.
