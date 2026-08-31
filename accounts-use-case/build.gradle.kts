@@ -16,7 +16,7 @@ dependencies {
     implementation(projects.accountsJourney)
     testImplementation(projects.testData)
 
-    coreLibraryDesugaring(libs.coreLibraryDesugaring)
+    coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 
     // Backbase libraries
     implementation(platform(backbase.bom))

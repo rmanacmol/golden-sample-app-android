@@ -6,9 +6,9 @@ plugins {
     id("dev.drewhamilton.poko")
 }
 
-internal val Project.libs: VersionCatalog
+internal val Project.thirdPartyLibs: VersionCatalog
     get() =
-        project.extensions.getByType<VersionCatalogsExtension>().named("libs")
+        project.extensions.getByType<VersionCatalogsExtension>().named("thirdPartyLibs")
 
 android {
     compileSdk = Version.compileSdk
@@ -38,7 +38,7 @@ android {
 
     testOptions {
         unitTests {
-            isIncludeAndroidResources = true
+            isIncludeAndroidResources = false
             isReturnDefaultValues = true
         }
         compileOptions {
@@ -86,13 +86,18 @@ tasks.withType<Test>().configureEach {
 }
 
 dependencies {
-    implementation(platform(libs.findLibrary("kotlin-bom").get()))
-    implementation(libs.findBundle("android-core").get())
-    implementation(libs.findBundle("koin").get())
-    implementation(libs.findBundle("ui").get())
+    implementation(thirdPartyLibs.findLibrary("androidx-appcompat").get())
+    implementation(thirdPartyLibs.findLibrary("androidx-core-ktx").get())
+    implementation(thirdPartyLibs.findLibrary("androidx-lifecycle-runtimeKtx").get())
+    implementation(thirdPartyLibs.findLibrary("koin-android").get())
+    implementation(thirdPartyLibs.findLibrary("androidx-constraintLayout").get())
+    implementation(thirdPartyLibs.findLibrary("material").get())
+    implementation(thirdPartyLibs.findLibrary("androidx-swipeRefreshLayout").get())
 
-    testImplementation(platform(libs.findLibrary("junit-bom").get()))
-    testImplementation(libs.findBundle("test").get())
-
-    testRuntimeOnly(libs.findBundle("test-runtime").get())
+    testImplementation(thirdPartyLibs.findLibrary("assertj-core").get())
+    testImplementation(thirdPartyLibs.findLibrary("junit-jupiter").get())
+    testImplementation(thirdPartyLibs.findLibrary("coroutines-test").get())
+    testImplementation(thirdPartyLibs.findLibrary("mockK").get())
+    testRuntimeOnly(thirdPartyLibs.findLibrary("junit-jupiter-engine").get())
+    testRuntimeOnly(thirdPartyLibs.findLibrary("junit-jupiter-launcher").get())
 }

@@ -2,12 +2,12 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-internal val Project.libs: VersionCatalog
+internal val Project.thirdPartyLibs: VersionCatalog
     get() =
-        project.extensions.getByType<VersionCatalogsExtension>().named("libs")
+        project.extensions.getByType<VersionCatalogsExtension>().named("thirdPartyLibs")
 
 detekt {
-    toolVersion = "1.23.1"
+    toolVersion = thirdPartyLibs.findVersion("detekt").get().requiredVersion
     buildUponDefaultConfig = true // preconfigure defaults
     allRules = false // activate all available (even unstable) rules.
     config.setFrom("$rootDir/config/golden-sample-app-detekt.yml") // point to your custom config defining rules to run, overwriting default behavior
@@ -17,5 +17,5 @@ detekt {
 }
 
 dependencies {
-    detektPlugins(libs.findLibrary("detekt.formatting").get())
+    detektPlugins(thirdPartyLibs.findLibrary("detekt-formatting").get())
 }

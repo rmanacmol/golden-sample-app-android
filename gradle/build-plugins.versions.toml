@@ -1,0 +1,24 @@
+# Build-time plugin dependencies for buildSrc (not in catalog-third-parties).
+# Kotlin is pinned for Gradle 8.13 kotlin-dsl compatibility; app deps come from thirdPartyLibs.
+[versions]
+kotlin = "2.1.10"
+agp = "8.9.1"
+detekt = "1.23.8"
+poko = "0.18.2"
+navigation = "2.9.5"
+karumi = "6.1.0"
+jacoco = "0.8.11"
+gradle-versions-plugin = "0.51.0"
+
+[libraries]
+agp = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+detekt-gradle-plugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+poko-gradle-plugin = { group = "dev.drewhamilton.poko", name = "poko-gradle-plugin", version.ref = "poko" }
+androidx-navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation" }
+karumi-gradle-plugin = { group = "com.karumi", name = "shot", version.ref = "karumi" }
+gradle-versions-gradle-plugin = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle-versions-plugin" }
+
+[plugins]
+navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
+karumi = { id = "shot", version.ref = "karumi" }

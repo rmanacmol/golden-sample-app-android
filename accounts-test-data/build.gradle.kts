@@ -15,5 +15,5 @@ dependencies {
     implementation(projects.accountsJourney)
     implementation(projects.testData)
 
-    coreLibraryDesugaring(libs.coreLibraryDesugaring)
+    coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 }

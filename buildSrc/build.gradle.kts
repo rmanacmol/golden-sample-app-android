@@ -17,13 +17,11 @@ repositories {
 
 dependencies {
     implementation(gradleApi())
-    implementation(libs.gradle)
-    implementation(libs.gradle.api)
-    implementation(libs.kotlin.gradle.plugin)
-    implementation(libs.karumi.gradle.plugin)
-
-    implementation(libs.detekt.gradle.plugin)
-    implementation(libs.gradle.versions.gradle.plugin)
-    implementation(libs.androidx.navigation.safe.args.gradle.plugin)
-    implementation(libs.poko.gradle.plugin)
+    implementation(buildPlugins.agp)
+    implementation(buildPlugins.kotlin.gradle.plugin)
+    implementation(buildPlugins.karumi.gradle.plugin)
+    implementation(buildPlugins.detekt.gradle.plugin)
+    implementation(buildPlugins.gradle.versions.gradle.plugin)
+    implementation(buildPlugins.androidx.navigation.safe.args.gradle.plugin)
+    implementation(buildPlugins.poko.gradle.plugin)
 }

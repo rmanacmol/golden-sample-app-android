@@ -1,10 +1,10 @@
 plugins {
     id(backbase.plugins.feature.android.module.get().pluginId)
-    id(libs.plugins.kotlin.parcelize.get().pluginId)
+    kotlin("plugin.parcelize")
     id(backbase.plugins.configured.detekt.get().pluginId)
     id(backbase.plugins.jacoco.codecoverage.get().pluginId)
-    id(libs.plugins.karumi.get().pluginId)
-    id(libs.plugins.navigation.safe.args.get().pluginId)
+    id(buildPlugins.plugins.karumi.get().pluginId)
+    id(buildPlugins.plugins.navigation.safe.args.get().pluginId)
 }
 
 android {
@@ -31,22 +31,25 @@ android {
 }
 
 dependencies {
-    implementation(libs.bundles.navigation)
+    implementation(thirdPartyLibs.androidx.navigation.fragmentKtx)
+    implementation(thirdPartyLibs.androidx.navigation.uiKtx)
+
     testImplementation(projects.testData)
     testImplementation(projects.accountsTestData)
 
     // Backbase libraries
     implementation(platform(backbase.bom))
 //    implementation(midTier.bundles.common)
+    implementation(foundationLibs.bundles.bomOutput)
     implementation(midTierLibs.bundles.bomOutput)
 
-    coreLibraryDesugaring(libs.coreLibraryDesugaring)
+    coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 
-    testImplementation(libs.archCore)
+    testImplementation(thirdPartyLibs.androidx.core.testing)
 
     androidTestImplementation(projects.accountsTestData)
     androidTestImplementation(projects.testData)
-    androidTestImplementation(libs.bundles.test.instrumented)
+    androidTestImplementation(thirdPartyLibs.bundles.testing.android)
 
-    androidTestUtil(libs.orchestrator)
+    androidTestUtil(thirdPartyLibs.androidx.test.orchestrator)
 }

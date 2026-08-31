@@ -1,9 +1,19 @@
 rootProject.name = "buildSrc"
 
 dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { setUrl("https://jitpack.io") }
+        maven {
+            name = "backbaseRepo"
+            url = uri("https://repo.backbase.com/repo")
+            credentials(PasswordCredentials::class)
+        }
+    }
     versionCatalogs {
-        create("libs") {
-            from(files("../gradle/libs.versions.toml"))
+        create("buildPlugins") {
+            from(files("../gradle/build-plugins.versions.toml"))
         }
     }
 }

@@ -26,6 +26,7 @@ dependencyResolutionManagement {
     }
 
     versionCatalogs {
+        create("buildPlugins") { from(files("gradle/build-plugins.versions.toml")) }
         create("backbase") { from(files("gradle/backbase.versions.toml")) }
 //        create("clients") { from(files("gradle/clients.versions.toml")) }
 //        create("foundation") { from(files("gradle/foundation.versions.toml")) }
