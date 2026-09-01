@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("com.android.application")
     kotlin("android")
-    id(libs.plugins.kotlin.parcelize.get().pluginId)
-    id(libs.plugins.navigation.safe.args.get().pluginId)
+    id(thirdPartyLibs.plugins.kotlin.parcelize.get().pluginId)
+    id("androidx.navigation.safeargs.kotlin")
     id(backbase.plugins.configured.detekt.get().pluginId)
 }
 
@@ -65,6 +65,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
             excludes += "META-INF/LICENSE.md"
             excludes += "META-INF/LICENSE-notice.md"
+            excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF"
         }
     }
 }
@@ -75,20 +76,27 @@ dependencies {
     implementation(projects.accountsUseCase)
 
     implementation(platform(backbase.bom))
+    implementation(thirdPartyLibs.androidx.appcompat)
+    implementation(thirdPartyLibs.androidx.core.ktx)
+    implementation(thirdPartyLibs.androidx.lifecycle.runtimeKtx)
+    implementation(thirdPartyLibs.androidx.navigation.fragmentKtx)
+    implementation(thirdPartyLibs.androidx.navigation.uiKtx)
+    implementation(thirdPartyLibs.androidx.constraintLayout)
+    implementation(thirdPartyLibs.material)
+    implementation(thirdPartyLibs.androidx.swipeRefreshLayout)
 
-    implementation(platform(libs.kotlin.bom))
-    implementation(libs.bundles.android.core)
-    implementation(libs.bundles.navigation)
-    implementation(libs.bundles.ui)
+    coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 
-    coreLibraryDesugaring(libs.coreLibraryDesugaring)
-
-    testImplementation(libs.bundles.test)
+    testImplementation(thirdPartyLibs.assertj.core)
+    testImplementation(thirdPartyLibs.junit)
+    testImplementation(thirdPartyLibs.junit.jupiter)
+    testImplementation(thirdPartyLibs.coroutines.test)
+    testImplementation(thirdPartyLibs.mockK)
 
     androidTestImplementation(projects.testData)
-    androidTestImplementation(libs.bundles.test.instrumented)
+    androidTestImplementation(thirdPartyLibs.bundles.testing.android)
 
-    androidTestUtil(libs.orchestrator)
+    androidTestUtil(thirdPartyLibs.androidx.test.orchestrator)
 
     // Backbase libraries
     implementation(clientLibs.bundles.bomOutput)
