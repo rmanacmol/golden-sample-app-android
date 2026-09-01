@@ -3,8 +3,8 @@ plugins {
     kotlin("plugin.parcelize")
     id(backbase.plugins.configured.detekt.get().pluginId)
     id(backbase.plugins.jacoco.codecoverage.get().pluginId)
-    id("shot") version thirdPartyLibs.findLibrary("karumi-shot").get().version
-    id("androidx.navigation.safeargs.kotlin") version thirdPartyLibs.findVersion("navigation").get().requiredVersion
+    id("shot")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
