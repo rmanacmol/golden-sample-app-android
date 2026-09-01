@@ -1,6 +1,6 @@
 plugins {
     id(backbase.plugins.feature.android.module.get().pluginId)
-    kotlin("plugin.parcelize")
+    id(thirdPartyLibs.plugins.kotlin.parcelize.get().pluginId)
     id(backbase.plugins.configured.detekt.get().pluginId)
     id(backbase.plugins.jacoco.codecoverage.get().pluginId)
     id("shot")

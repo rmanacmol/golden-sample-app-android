@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("plugin.parcelize")
+    id(thirdPartyLibs.plugins.kotlin.parcelize.get().pluginId)
     id("androidx.navigation.safeargs.kotlin")
     id(backbase.plugins.configured.detekt.get().pluginId)
 }
