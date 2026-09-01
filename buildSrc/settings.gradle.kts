@@ -12,8 +12,8 @@ dependencyResolutionManagement {
         }
     }
     versionCatalogs {
-        create("buildPlugins") {
-            from(files("../gradle/build-plugins.versions.toml"))
+        create("thirdPartyLibs") {
+            from("com.backbase.android.platform:catalog-third-parties:2026.03.01")
         }
     }
 }

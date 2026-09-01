@@ -4,7 +4,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("plugin.parcelize")
-    id(buildPlugins.plugins.navigation.safe.args.get().pluginId)
+    id("androidx.navigation.safeargs.kotlin") version thirdPartyLibs.findVersion("navigation").get().requiredVersion
     id(backbase.plugins.configured.detekt.get().pluginId)
 }
 

@@ -3,10 +3,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("plugin.parcelize")
-    id(buildPlugins.plugins.navigation.safe.args.get().pluginId)
+    alias(thirdPartyLibs.plugins.kotlin.parcelize)
+    id("androidx.navigation.safeargs.kotlin") version thirdPartyLibs.findVersion("navigation").get().requiredVersion
     id(backbase.plugins.configured.detekt.get().pluginId)
-    id(buildPlugins.plugins.karumi.get().pluginId)
+    id("shot") version thirdPartyLibs.findLibrary("karumi-shot").get().version
     alias(backbase.plugins.visualiser)
 }
 

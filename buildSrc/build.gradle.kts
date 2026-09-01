@@ -15,13 +15,16 @@ repositories {
     gradlePluginPortal()
 }
 
+val navigationVersion = thirdPartyLibs.findVersion("navigation").get().requiredVersion
+
 dependencies {
     implementation(gradleApi())
-    implementation(buildPlugins.agp)
-    implementation(buildPlugins.kotlin.gradle.plugin)
-    implementation(buildPlugins.karumi.gradle.plugin)
-    implementation(buildPlugins.detekt.gradle.plugin)
-    implementation(buildPlugins.gradle.versions.gradle.plugin)
-    implementation(buildPlugins.androidx.navigation.safe.args.gradle.plugin)
-    implementation(buildPlugins.poko.gradle.plugin)
+    implementation(thirdPartyLibs.findLibrary("agp").get())
+    implementation(thirdPartyLibs.findLibrary("kotlin-gradle-plugin").get())
+    implementation(thirdPartyLibs.findLibrary("karumi-shot").get())
+    implementation(thirdPartyLibs.findLibrary("detekt").get())
+    implementation(thirdPartyLibs.findLibrary("poko").get())
+    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
+    // Not published in catalog-third-parties; required by dependency-updates convention plugin.
+    implementation("com.github.ben-manes:gradle-versions-plugin:0.51.0")
 }
