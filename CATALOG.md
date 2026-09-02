@@ -8,7 +8,7 @@ The minimal sample that includes all the required Backbase SDKs to get started t
 - Identity Journey
 - Workspaces Journey
 - Example More Menu Journey
-- Example how to build a custom Accounts Journey
+- Example how to build a custom Accounts Journey (Jetpack Compose)
 - Example how to use feature flag
 - NEO header
 - Screenshot tests

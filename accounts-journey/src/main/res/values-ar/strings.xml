@@ -6,6 +6,7 @@
     <string name="failed_get_data">فشل الحصول على البيانات</string>
     <string name="failed_unknown">هناك خطأ ما</string>
     <string name="no_accounts">لم يتم العثور على حسابات.</string>
+    <string name="accounts_search_hint">بحث...</string>
 
     <string name="header_account_details">تفاصيل الحساب</string>
     <string name="header_general">عام</string>

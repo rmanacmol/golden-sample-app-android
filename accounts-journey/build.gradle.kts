@@ -1,6 +1,7 @@
 plugins {
     id(backbase.plugins.feature.android.module.get().pluginId)
     id(thirdPartyLibs.plugins.kotlin.parcelize.get().pluginId)
+    alias(thirdPartyLibs.plugins.compose.compiler)
     id(backbase.plugins.configured.detekt.get().pluginId)
     id(backbase.plugins.jacoco.codecoverage.get().pluginId)
     id("shot")
@@ -23,6 +24,9 @@ android {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
     }
+    buildFeatures {
+        compose = true
+    }
     testOptions {
         targetSdk = Version.compileSdk
         execution = "ANDROIDX_TEST_ORCHESTRATOR"
@@ -33,6 +37,12 @@ android {
 dependencies {
     implementation(thirdPartyLibs.androidx.navigation.fragmentKtx)
     implementation(thirdPartyLibs.androidx.navigation.uiKtx)
+
+    implementation(platform(thirdPartyLibs.compose.bom))
+    implementation(thirdPartyLibs.compose.ui)
+    implementation("androidx.compose.material3:material3")
+    implementation(thirdPartyLibs.compose.ui.tooling.preview)
+    debugImplementation(thirdPartyLibs.compose.ui.tooling)
 
     testImplementation(projects.testData)
     testImplementation(projects.accountsTestData)

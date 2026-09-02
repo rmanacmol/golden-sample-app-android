@@ -6,6 +6,7 @@
     <string name="failed_get_data">Failed to get data</string>
     <string name="failed_unknown">Something went wrong</string>
     <string name="no_accounts">No accounts found.</string>
+    <string name="accounts_search_hint">Search...</string>
 
     <string name="header_account_details">Account details</string>
     <string name="header_general">General</string>
