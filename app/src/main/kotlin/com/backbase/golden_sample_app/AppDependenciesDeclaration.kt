@@ -8,6 +8,7 @@ import com.backbase.app_common.storage.storageModule
 import com.backbase.golden_sample_app.auth.appAuthModule
 import com.backbase.golden_sample_app.feature_filter.featureFilterModule
 import com.backbase.golden_sample_app.journey.accounts.accountsModule
+import com.backbase.golden_sample_app.journey.contacts.contactsModule
 import com.backbase.golden_sample_app.journey.profile.userProfileModule
 import com.backbase.golden_sample_app.journey.workspaces.workspacesModule
 import com.backbase.golden_sample_app.menu.moreMenuModule
@@ -31,4 +32,5 @@ internal fun Application.getDependenciesDeclaration(): List<Module> =
         userProfileModule(),
         workspacesModule(),
         accountsModule(),
+        contactsModule(),
     )

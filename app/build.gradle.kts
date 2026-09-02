@@ -8,6 +8,7 @@ plugins {
     id(backbase.plugins.configured.detekt.get().pluginId)
     id("shot")
     alias(backbase.plugins.visualiser)
+    alias(thirdPartyLibs.plugins.compose.compiler)
 }
 
 visualizer {
@@ -75,6 +76,7 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        compose = true
     }
     testOptions {
         execution = "ANDROIDX_TEST_ORCHESTRATOR"
@@ -105,6 +107,13 @@ dependencies {
     implementation(thirdPartyLibs.androidx.constraintLayout)
     implementation(thirdPartyLibs.material)
     implementation(thirdPartyLibs.androidx.swipeRefreshLayout)
+
+    implementation(platform(thirdPartyLibs.compose.bom))
+    implementation(thirdPartyLibs.compose.ui)
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.compose.material3:material3")
+    implementation(thirdPartyLibs.compose.ui.tooling.preview)
+    debugImplementation(thirdPartyLibs.compose.ui.tooling)
 
     coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 

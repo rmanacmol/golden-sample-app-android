@@ -45,6 +45,22 @@
     <include app:graph="@navigation/account_journey_nav_graph" />
 
     <fragment
+        android:id="@+id/customContactsFragment"
+        android:name="com.backbase.golden_sample_app.extend_journey.contacts.presentation.contactlist.ui.CustomContactsFragment">
+        <action
+            android:id="@+id/action_customContactsFragment_to_customContactDetailsFragment"
+            app:destination="@id/customContactDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/customContactDetailsFragment"
+        android:name="com.backbase.golden_sample_app.extend_journey.contacts.presentation.contactdetail.ContactDetailFragment">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
         android:id="@+id/more"
         android:name="com.backbase.android.retail.journey.more.MoreJourney"
         android:label="More menu"

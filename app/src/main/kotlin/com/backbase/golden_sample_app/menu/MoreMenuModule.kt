@@ -11,10 +11,15 @@ import com.backbase.android.retail.journey.more.MoreJourneyScope
 import com.backbase.android.retail.journey.more.MoreRouter
 import com.backbase.android.retail.journey.more.OnActionComplete.NavigateTo
 import com.backbase.app_common.auth.session.SessionManager
+import com.backbase.app_common.feature_filter.UserEntitlementsRepository
 import com.backbase.deferredresources.DeferredColor
 import com.backbase.deferredresources.DeferredDrawable
 import com.backbase.deferredresources.DeferredText
 import com.backbase.golden_sample_app.R
+import com.backbase.golden_sample_app.configuration.ApplicationConfiguration
+import com.backbase.golden_sample_app.configuration.ApplicationFeatureFlag
+import com.backbase.golden_sample_app.configuration.hasFeatureFlag
+import com.backbase.golden_sample_app.user.UserEntitlements
 import org.koin.core.definition.Definition
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -34,7 +39,8 @@ internal fun Module.moreMenuModule(block: MoreMenuDependenciesScope.() -> Unit) 
         scoped {
             demoMoreConfig(
                 sessionManager = get(),
-                navController = get<NavController>()
+                navController = get<NavController>(),
+                userEntitlementsRepository = get()
             )
         }
     }
@@ -43,7 +49,7 @@ internal fun Module.moreMenuModule(block: MoreMenuDependenciesScope.() -> Unit) 
 internal fun moreMenuModule() = module {
     moreMenuModule {
         moreMenuJourneyConfiguration = {
-            demoMoreConfig(sessionManager = get(), navController = get())
+            demoMoreConfig(sessionManager = get(), navController = get(), userEntitlementsRepository = get())
         }
     }
 }
@@ -57,12 +63,14 @@ internal class MoreMenuDependenciesScope {
 
 fun demoMoreConfig(
     sessionManager: SessionManager,
-    navController: NavController
+    navController: NavController,
+    userEntitlementsRepository: UserEntitlementsRepository
 ) = MoreConfiguration {
     showIcons = true
     contentDescription = DeferredText.Resource(R.string.more_menu_title)
     sections = MenuSections {
         +demoSection()
+        +contactsSection(userEntitlementsRepository)
         +logOutSection(sessionManager, navController)
     }
 }
@@ -79,6 +87,28 @@ private fun demoSection(): MenuSection {
             iconBackgroundColor = DeferredColor.Resource(com.backbase.android.design.R.color.bds_primary)
         ) {
             NavigateTo(R.id.upcoming_fragment)
+        }
+    }
+}
+
+private fun contactsSection(
+    userEntitlementsRepository: UserEntitlementsRepository,
+): MenuSection {
+    return MenuSection {
+        if (ApplicationConfiguration.applicationFeatureFlags.hasFeatureFlag<ApplicationFeatureFlag.ContactsJourneyFeatureFlag>()) {
+            if (userEntitlementsRepository.entitlements.contains(UserEntitlements.Contact.view)) {
+                val switchIconColor =
+                    DeferredColor.Resource(com.backbase.android.design.R.color.bds_onDanger)
+                +MenuItem(
+                    title = DeferredText.Resource(R.string.more_menu_contacts),
+                    icon = DeferredDrawable.Resource(com.backbase.android.design.R.drawable.backbase_ic_contacts) {
+                        setTint(switchIconColor.resolve(it))
+                    },
+                    iconBackgroundColor = DeferredColor.Resource(com.backbase.android.design.R.color.bds_primary)
+                ) {
+                    NavigateTo(R.id.customContactsFragment)
+                }
+            }
         }
     }
 }
