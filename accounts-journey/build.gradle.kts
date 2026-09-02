@@ -1,10 +1,10 @@
 plugins {
     id(backbase.plugins.feature.android.module.get().pluginId)
-    id(libs.plugins.kotlin.parcelize.get().pluginId)
+    id(thirdPartyLibs.plugins.kotlin.parcelize.get().pluginId)
     id(backbase.plugins.configured.detekt.get().pluginId)
     id(backbase.plugins.jacoco.codecoverage.get().pluginId)
-    id(libs.plugins.karumi.get().pluginId)
-    id(libs.plugins.navigation.safe.args.get().pluginId)
+    id("shot")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -20,24 +20,36 @@ android {
             enableAndroidTestCoverage = true
         }
     }
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+    }
     testOptions {
+        targetSdk = Version.compileSdk
         execution = "ANDROIDX_TEST_ORCHESTRATOR"
+        animationsDisabled = true
     }
 }
 
 dependencies {
-    implementation(libs.bundles.navigation)
+    implementation(thirdPartyLibs.androidx.navigation.fragmentKtx)
+    implementation(thirdPartyLibs.androidx.navigation.uiKtx)
+
     testImplementation(projects.testData)
+    testImplementation(projects.accountsTestData)
 
     // Backbase libraries
     implementation(platform(backbase.bom))
-    implementation(midTier.bundles.common)
-    implementation(libs.bundles.navigation)
+//    implementation(midTier.bundles.common)
+    implementation(foundationLibs.bundles.bomOutput)
+    implementation(midTierLibs.bundles.bomOutput)
 
-    testImplementation(libs.archCore)
+    coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 
-    androidTestImplementation(projects.fakeAccountsUseCase)
-    androidTestImplementation(libs.bundles.test.instrumented)
+    testImplementation(thirdPartyLibs.androidx.core.testing)
 
-    androidTestUtil(libs.orchestrator)
+    androidTestImplementation(projects.accountsTestData)
+    androidTestImplementation(projects.testData)
+    androidTestImplementation(thirdPartyLibs.bundles.testing.android)
+
+    androidTestUtil(thirdPartyLibs.androidx.test.orchestrator)
 }

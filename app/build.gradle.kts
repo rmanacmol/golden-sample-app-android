@@ -3,10 +3,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("com.android.application")
     kotlin("android")
-    id(libs.plugins.kotlin.parcelize.get().pluginId)
-    id(libs.plugins.navigation.safe.args.get().pluginId)
+    id(thirdPartyLibs.plugins.kotlin.parcelize.get().pluginId)
+    id("androidx.navigation.safeargs.kotlin")
     id(backbase.plugins.configured.detekt.get().pluginId)
-    id(libs.plugins.karumi.get().pluginId)
+    id("shot")
     alias(backbase.plugins.visualiser)
 }
 
@@ -33,6 +33,12 @@ android {
         versionName = Version.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // The following argument makes the Android Test Orchestrator run its
+        // "pm clear" command after each test invocation. This command ensures
+        // that the app's state is completely cleared between tests.
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
+
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -54,6 +60,8 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
             buildConfigField(type = "Boolean", name = "DEBUG_MODE", value = "true")
+            buildConfigField("String", "TEST_ACCOUNT_USERNAME", "\"ADD USER NAME HERE\"")
+            buildConfigField("String", "TEST_ACCOUNT_PASSWORD", "\"ADD PASSWORD HERE\"")
         }
     }
     compileOptions {
@@ -68,35 +76,56 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    testOptions {
+        execution = "ANDROIDX_TEST_ORCHESTRATOR"
+        animationsDisabled = true
+    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
             excludes += "META-INF/LICENSE.md"
             excludes += "META-INF/LICENSE-notice.md"
+            excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF"
         }
     }
 }
 
 dependencies {
+    implementation(fileTree(mapOf("dir" to "../libs", "include" to listOf("*.jar", "*.aar"))))
     implementation(projects.appCommon)
     implementation(projects.accountsJourney)
     implementation(projects.accountsUseCase)
 
     implementation(platform(backbase.bom))
+    implementation(thirdPartyLibs.androidx.appcompat)
+    implementation(thirdPartyLibs.androidx.core.ktx)
+    implementation(thirdPartyLibs.androidx.lifecycle.runtimeKtx)
+    implementation(thirdPartyLibs.androidx.navigation.fragmentKtx)
+    implementation(thirdPartyLibs.androidx.navigation.uiKtx)
+    implementation(thirdPartyLibs.androidx.constraintLayout)
+    implementation(thirdPartyLibs.material)
+    implementation(thirdPartyLibs.androidx.swipeRefreshLayout)
 
-    implementation(platform(libs.kotlin.bom))
-    implementation(libs.bundles.android.core)
-    implementation(libs.bundles.navigation)
-    implementation(libs.bundles.ui)
+    coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 
-    coreLibraryDesugaring(libs.coreLibraryDesugaring)
+    testImplementation(thirdPartyLibs.assertj.core)
+    testImplementation(thirdPartyLibs.junit)
+    testImplementation(thirdPartyLibs.junit.jupiter)
+    testImplementation(thirdPartyLibs.coroutines.test)
+    testImplementation(thirdPartyLibs.mockK)
 
-    testImplementation(libs.bundles.test)
+    androidTestImplementation(projects.testData)
+    androidTestImplementation(thirdPartyLibs.bundles.testing.android)
+
+    androidTestUtil(thirdPartyLibs.androidx.test.orchestrator)
 
     // Backbase libraries
-    implementation(clients.bundles.clients)
-    implementation(midTier.bundles.common)
-    implementation(foundation.bundles.foundation)
+//    implementation(clients.bundles.clients)
+//    implementation(midTier.bundles.common)
+//    implementation(foundation.bundles.foundation)
+    implementation(clientLibs.bundles.bomOutput)
+    implementation(midTierLibs.bundles.bomOutput)
+    implementation(foundationLibs.bundles.bomOutput)
     implementation(backbase.bundles.journeys)
     implementation(backbase.bundles.useCases)
 }

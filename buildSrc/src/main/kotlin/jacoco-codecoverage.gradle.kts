@@ -2,9 +2,6 @@ plugins {
     id("jacoco")
 }
 
-internal val Project.libs: VersionCatalog
-    get() = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
-
 abstract class CoverageVerificationExtension {
     var minimum: BigDecimal = "0.8".toBigDecimal()
 }
@@ -12,7 +9,7 @@ abstract class CoverageVerificationExtension {
 private val coverageVerificationExtension = extensions.create<CoverageVerificationExtension>("coverageVerification")
 
 jacoco {
-    toolVersion = libs.findVersion("jacoco").get().requiredVersion
+    toolVersion = "0.8.11"
 }
 
 private val isAndroidModule: Boolean
