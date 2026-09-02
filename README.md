@@ -40,17 +40,6 @@ All tests use mocks and are not connected to any external services.
 ./gradlew accounts-journey:cAT
 ```
 
-`accounts-demo` </br>
-This module contains End-to-End UI tests for the Accounts Journey, connected to the EBP Sandbox Environment.
-
-> [!IMPORTANT] 
-> A test account must be configured before running tests.
-> Provide credentials by editing [accounts-demo/build.gradle.kts](accounts-demo/build.gradle.kts) using the [EBP Sandbox user credentials](https://backbase.io/ebp-sandbox/user-credentials?experience=retail).
-
-```sh
-./gradlew accounts-demo:cAT
-```
-
 `app` </br>
 This module includes End-to-End UI tests of the app, connected to the EBP Sandbox Environment.
 
