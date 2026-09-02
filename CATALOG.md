@@ -30,7 +30,7 @@ A sample implementation demonstrating a custom authentication flow for device re
 LTS 25.03
 
 ## [sample/devs/extending-a-journey](https://github.com/Backbase/golden-sample-app-android/tree/sample/devs/extending-a-journey)
-This example explains how to extend a journey.
+This example explains how to extend a journey with a custom Compose contacts UI.
 \
 **Maintainer**: Mobile-Foundation
 \

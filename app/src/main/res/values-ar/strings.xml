@@ -7,6 +7,12 @@
 
     <string name="more_menu_title">المزيد من القائمة</string>
     <string name="more_menu_contacts">جهات الاتصال</string>
+    <string name="contacts_title">جهات الاتصال</string>
+    <string name="contacts_search_hint">بحث...</string>
+    <string name="contacts_add">إضافة جهة اتصال</string>
+    <string name="contact_details_title">تفاصيل جهة الاتصال</string>
+    <string name="contact_details_unimplemented">شاشة غير مكتملة.</string>
+    <string name="contact_details_id_selected">معرّف جهة الاتصال المحدد: %1$s</string>
     <string name="more_menu_log_out">تسجيل خروج</string>
     <string name="more_menu_switch_user">تغير المستخدم</string>
     <string name="more_menu_security_section_title">حماية</string>

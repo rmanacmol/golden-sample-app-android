@@ -6,6 +6,9 @@ authentication = "10.0.0"
 ## B
 bom = "2026.03.1-LTS"
 
+## C
+contacts = "8.3.0"
+
 ## F
 featureFilter = "10.0.0"
 
@@ -26,8 +29,8 @@ authentication-use-case = { group = "com.backbase.android.identity.journey", nam
 bom = { module = "com.backbase:backbase-bom", version.ref = "bom" }
 
 ## C
-contacts-journey = { group = "com.backbase.android.retail.journey", name = "contacts-journey", version = "" }
-contacts-journey-usecase = { group = "com.backbase.android.retail.journey", name = "gen-contactmanager-client-2-contacts-use-case", version = "" }
+contacts-journey = { group = "com.backbase.android.retail.journey", name = "contacts-journey", version.ref = "contacts" }
+contacts-journey-usecase = { group = "com.backbase.android.retail.journey", name = "gen-contactmanager-client-2-contacts-use-case", version.ref = "contacts" }
 
 ## F
 featureFilterUseCase = { group = "com.backbase.android.retail.feature_filter", name = "feature-filter-use-case", version.ref = "featureFilter" }
