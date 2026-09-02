@@ -5,6 +5,8 @@ archCore = "2.2.0"
 assertJ = "3.26.3"
 
 ## C
+composeBom = "2024.06.00"
+composeCompiler = "1.5.14"
 coreLibraryDesugaring = "2.1.5"
 
 ## D
@@ -53,6 +55,12 @@ archCore = { module = "androidx.arch.core:core-testing", name = "archCore", vers
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertJ" }
 
 ## C
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version = "" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version = "" }
+compose-ui = { group = "androidx.compose.ui", name = "ui", version = "" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version = "" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version = "" }
 coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version = "" }
 coroutinesTest = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version = "" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "" }

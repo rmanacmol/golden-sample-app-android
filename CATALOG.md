@@ -19,7 +19,7 @@ The minimal sample that includes all the required Backbase SDKs to get started t
 LTS 25.03
 
 ## [sample/devs/extending-a-journey](https://github.com/Backbase/golden-sample-app-android/tree/sample/devs/extending-a-journey)
-This example explains how to extend a journey.
+This example explains how to extend a journey with a custom Compose contacts UI.
 \
 **Status**: Maintained
 \

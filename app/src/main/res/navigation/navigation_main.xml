@@ -51,8 +51,7 @@
 
     <fragment
         android:id="@+id/customContactsFragment"
-        android:name="com.backbase.golden_sample_app.extend_journey.contacts.presentation.contactlist.ui.CustomContactsFragment"
-        tools:layout="@layout/fragment_custom_contacts" >
+        android:name="com.backbase.golden_sample_app.extend_journey.contacts.presentation.contactlist.ui.CustomContactsFragment">
         <action
             android:id="@+id/action_customContactsFragment_to_customContactDetailsFragment"
             app:destination="@id/customContactDetailsFragment" />
@@ -60,8 +59,7 @@
 
     <fragment
         android:id="@+id/customContactDetailsFragment"
-        android:name="com.backbase.golden_sample_app.extend_journey.contacts.presentation.contactdetail.ContactDetailFragment"
-        tools:layout="@layout/fragment_custom_contact_detail">
+        android:name="com.backbase.golden_sample_app.extend_journey.contacts.presentation.contactdetail.ContactDetailFragment">
         <argument
             android:name="id"
             app:argType="string" />

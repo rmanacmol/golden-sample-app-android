@@ -67,6 +67,10 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
     packaging {
         resources {
@@ -88,6 +92,13 @@ dependencies {
     implementation(libs.bundles.android.core)
     implementation(libs.bundles.navigation)
     implementation(libs.bundles.ui)
+
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.ui.tooling.preview)
+    debugImplementation(libs.compose.ui.tooling)
 
     coreLibraryDesugaring(libs.coreLibraryDesugaring)
 
