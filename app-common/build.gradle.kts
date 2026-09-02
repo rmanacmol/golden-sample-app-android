@@ -11,18 +11,21 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.kotlin.bom))
     implementation(projects.accountsJourney)
     implementation(projects.accountsUseCase)
-    implementation(libs.bundles.navigation)
+    implementation(thirdPartyLibs.androidx.navigation.fragmentKtx)
+    implementation(thirdPartyLibs.androidx.navigation.uiKtx)
 
-    coreLibraryDesugaring(libs.coreLibraryDesugaring)
+    coreLibraryDesugaring(thirdPartyLibs.coreLibraryDesugaring)
 
     // Backbase libraries
     implementation(platform(backbase.bom))
-    implementation(clients.bundles.clients)
-    implementation(midTier.bundles.common)
-    implementation(foundation.bundles.foundation)
+//    implementation(clients.bundles.clients)
+//    implementation(midTier.bundles.common)
+//    implementation(foundation.bundles.foundation)
+    implementation(clientLibs.bundles.bomOutput)
+    implementation(midTierLibs.bundles.bomOutput)
+    implementation(foundationLibs.bundles.bomOutput)
     implementation(backbase.bundles.journeys)
     implementation(backbase.bundles.useCases)
 }

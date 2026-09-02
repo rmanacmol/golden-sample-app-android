@@ -27,15 +27,21 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("backbase") { from(files("gradle/backbase.versions.toml")) }
-        create("clients") { from(files("gradle/clients.versions.toml")) }
-        create("foundation") { from(files("gradle/foundation.versions.toml")) }
-        create("midTier") { from(files("gradle/midTier.versions.toml")) }
+//        create("clients") { from(files("gradle/clients.versions.toml")) }
+//        create("foundation") { from(files("gradle/foundation.versions.toml")) }
+//        create("midTier") { from(files("gradle/midTier.versions.toml")) }
+
+        create("thirdPartyLibs") { from("com.backbase.android.platform:catalog-third-parties:2026.03.01") }
+        create("foundationLibs") { from("com.backbase.android.platform:catalog-foundation:2026.03.01") }
+        create("midTierLibs") { from("com.backbase.android.platform:catalog-mid-tier:2026.03.01") }
+        create("clientLibs") { from("com.backbase.android.platform:catalog-clients:2026.03.01") }
     }
 }
 rootProject.name = "Golden_Sample_App_Android"
 include(":app")
+include(":app-common")
 include(":accounts-journey")
 include(":accounts-use-case")
-include(":fake-accounts-use-case")
-include(":app-common")
+include(":accounts-test-data")
+include(":accounts-demo")
 include(":test-data")

@@ -1,22 +1,19 @@
 [versions]
 ## A
-accessControlEntitlements = "7.1.0"
-authentication = "8.1.0"
+accessControlEntitlements = "10.0.0"
+authentication = "10.0.0"
 
 ## B
-bom = "2025.03.01"
-
-## C
-contacts = "7.4.0"
+bom = "2026.03.1-LTS"
 
 ## F
-featureFilter = "7.1.0"
+featureFilter = "10.0.0"
 
 ## M
-moreMenu = "7.1.1"
+moreMenu = "9.0.0"
 
 ## W
-workspaces = "8.1.0"
+workspaces = "10.1.0"
 
 [libraries]
 ## A
@@ -25,26 +22,18 @@ authentication-journey = { group = "com.backbase.android.identity.journey", name
 authentication-use-case = { group = "com.backbase.android.identity.journey", name = "identity-auth-client-1-authentication-use-case", version.ref = "authentication" }
 
 ## B
-bom = { module = "com.backbase.android.platform:bom", version.ref = "bom" }
-business-journey-common = { group = "com.backbase.android.business.journey", name = "journey-common", version = "" }
+#bom = { module = "com.backbase.android.platform:bom", version.ref = "bom" }
+bom = { module = "com.backbase:backbase-bom", version.ref = "bom" }
 
 ## C
-clients-common-coroutines = { group = "com.backbase.android.clients", name = "clients-common-coroutines", version = "" }
-contacts-journey = { group = "com.backbase.android.retail.journey", name = "contacts-journey", version.ref = "contacts" }
-contacts-journey-usecase = { group = "com.backbase.android.retail.journey", name = "gen-contactmanager-client-2-contacts-use-case", version.ref = "contacts" }
+contacts-journey = { group = "com.backbase.android.retail.journey", name = "contacts-journey", version = "" }
+contacts-journey-usecase = { group = "com.backbase.android.retail.journey", name = "gen-contactmanager-client-2-contacts-use-case", version = "" }
 
 ## F
 featureFilterUseCase = { group = "com.backbase.android.retail.feature_filter", name = "feature-filter-use-case", version.ref = "featureFilter" }
 
-## J
-journey-test = { group = "com.backbase.android.retail.journey", name = "journey-test", version = "" }
-
 ## M
 moreMenuJourney = { group = "com.backbase.android.retail.journey", name = "more-journey", version.ref = "moreMenu" }
-
-## R
-retail-journey-common = { group = "com.backbase.android.retail.journey", name = "journey-common", version = "" }
-retail-journey-common-koin = { group = "com.backbase.android.retail.journey", name = "journey-common-koin", version = "" }
 
 ## W
 workspaces-journey = { group = "com.backbase.android.business.journey", name = "workspaces-journey", version.ref = "workspaces" }
@@ -71,14 +60,6 @@ jacoco-root-codecoverage = { id = "jacoco-root-codecoverage" }
 visualiser = { id = "com.backbase.android.visualizer", version = "1.0.0" }
 
 [bundles]
-## C
-common = [
-    "business-journey-common",
-    "clients-common-coroutines",
-    "retail-journey-common",
-    "retail-journey-common-koin",
-    "journey-test",
-]
 
 ## J
 journeys = [
