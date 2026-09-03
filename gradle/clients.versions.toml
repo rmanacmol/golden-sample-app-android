@@ -2,14 +2,14 @@
 
 [libraries]
 ## A
-accessControl = { group = "com.backbase.android.clients", name = "gen2-accesscontrol-client-3", version = "" }
-arrangements = { group = "com.backbase.android.clients", name = "gen2-arrangement-client-2", version = "" }
+accessControl = { group = "com.backbase.android.clients", name = "gen2-accesscontrol-client-3", version = "1.1.0" }
+arrangements = { group = "com.backbase.android.clients", name = "gen2-arrangement-client-2", version = "2.12.5" }
 
 ## C
-contacts = { group = "com.backbase.android.clients", name ="gen-contactmanager-client-2", version = "" }
+contacts = { group = "com.backbase.android.clients", name ="gen-contactmanager-client-2", version = "1.4.0" }
 
 ## U
-userManager = { group = "com.backbase.android.clients", name = "gen-usermanager-client-2", version = "" }
+userManager = { group = "com.backbase.android.clients", name = "gen-usermanager-client-2", version = "1.0.0" }
 
 [plugins]
 

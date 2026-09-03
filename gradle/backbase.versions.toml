@@ -1,22 +1,22 @@
 [versions]
 ## A
-accessControlEntitlements = "7.1.0"
-authentication = "8.1.0"
+accessControlEntitlements = "10.0.0"
+authentication = "10.0.0"
 
 ## B
-bom = "2025.03.01"
+bom = "2026.03.1-LTS"
 
 ## C
-contacts = "7.4.0"
+contacts = "8.3.0"
 
 ## F
-featureFilter = "7.1.0"
+featureFilter = "10.0.0"
 
 ## M
-moreMenu = "7.1.1"
+moreMenu = "9.0.0"
 
 ## W
-workspaces = "8.1.0"
+workspaces = "10.1.0"
 
 [libraries]
 ## A
@@ -25,7 +25,7 @@ authentication-journey = { group = "com.backbase.android.identity.journey", name
 authentication-use-case = { group = "com.backbase.android.identity.journey", name = "identity-auth-client-1-authentication-use-case", version.ref = "authentication" }
 
 ## B
-bom = { module = "com.backbase.android.platform:bom", version.ref = "bom" }
+bom = { module = "com.backbase:backbase-bom", version.ref = "bom" }
 business-journey-common = { group = "com.backbase.android.business.journey", name = "journey-common", version = "" }
 
 ## C

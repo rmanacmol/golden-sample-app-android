@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compatibility for legacy account layouts when linked against MDS 9. -->
+    <attr name="colorOnSurfaceSecondary" format="color" />
+</resources>
