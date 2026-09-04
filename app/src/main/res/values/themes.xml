@@ -4,5 +4,7 @@
     <style name="AppTheme" parent="Theme.Backbase.Premium">
         <item name="iconAppLogoSquare">@drawable/ic_backbase_logo_square</item>
         <item name="iconAppLogoWide">@drawable/backbase_logo</item>
+        <item name="colorTextSupport">@color/bds_textSupport</item>
+        <item name="colorOnSurfaceSecondary">@color/bds_textSupport</item>
     </style>
 </resources>
