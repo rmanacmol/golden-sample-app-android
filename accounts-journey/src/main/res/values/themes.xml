@@ -2,7 +2,5 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.Backbase.Fullscreen">
-        <item name="colorTextSupport">@color/bds_textSupport</item>
-        <item name="colorOnSurfaceSecondary">@color/bds_textSupport</item>
     </style>
 </resources>
