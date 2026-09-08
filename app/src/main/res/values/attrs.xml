@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Backbase Design System compatibility attributes -->
-    <!-- These attributes are used by dependencies that expect them to be defined -->
-    
-    <!-- Text color attributes -->
+    <!--
+        Resource-linking stubs for MDS 9 (2026.03-LTS).
+
+        Purpose: declare theme attribute *names* so AAPT can link layouts shipped inside
+        journey AARs (e.g. contacts-journey 8.x) when this app is built against MDS 9.
+        This file does NOT define colors or replace the Backbase Design System — runtime
+        values still come from Theme.Backbase.Premium and MDS tokens.
+
+        Safe to remove once all journey dependencies compile against MDS 9 without these
+        attribute declarations (same approach as main after the 2026.03-LTS upgrade).
+    -->
+
+    <!-- MDS theme color attribute names (values provided by Theme.Backbase at runtime) -->
     <attr name="colorTextSupport" format="color" />
     <attr name="colorTextDisabled" format="color" />
     <attr name="colorTextDefault" format="color" />
@@ -149,7 +158,7 @@
         <enum name="warning" value="3" />
     </attr>
 
-    <!-- Compatibility with contacts-journey 8.x on MDS 9. -->
+    <!-- contacts-journey 8.x layouts reference these attrs; MDS 9 no longer exports them for linking -->
     <attr name="iconBackground" format="reference|color" />
     <attr name="stateViewIconBackground" format="reference|color" />
 </resources>
