@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.Backbase.Premium">
+    <!-- contacts-journey 8.x layouts; value from Theme.Backbase -->
+    <attr name="iconBackground" format="reference|color" />
+    <attr name="stateViewIconBackground" format="reference|color" />
+
+    <style name="AppTheme" parent="Theme.Backbase">
         <item name="iconAppLogoSquare">@drawable/ic_backbase_logo_square</item>
         <item name="iconAppLogoWide">@drawable/backbase_logo</item>
+        <item name="stateViewIconBackground">?colorBackgroundBrandSubtle</item>
     </style>
 </resources>

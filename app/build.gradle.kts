@@ -7,18 +7,6 @@ plugins {
     id(libs.plugins.navigation.safe.args.get().pluginId)
     id(backbase.plugins.configured.detekt.get().pluginId)
     id(libs.plugins.karumi.get().pluginId)
-    alias(backbase.plugins.visualiser)
-}
-
-visualizer {
-    themes {
-        register("Theme.Backbase.Premium") {
-            jsonFile = layout.projectDirectory.file("themes/premiumTokens.json")
-        }
-        register("Theme.Backbase.Default") {
-            jsonFile = layout.projectDirectory.file("themes/defaultTokens.json")
-        }
-    }
 }
 
 android {
