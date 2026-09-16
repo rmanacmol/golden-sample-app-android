@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--
-        AAPT link-time stub for contacts-journey 8.x on MDS 9 (2026.03-LTS).
+        AAPT compatibility for contacts-journey 8.x on MDS 9 (2026.03-LTS).
 
-        contacts-journey layouts (rcj_contact_state_view.xml) reference
-        app:iconBackground="?stateViewIconBackground". MDS 9 does not export this
-        attribute name for resource merging, so the app must declare the name here
-        for :app:processDebugResources to succeed.
+        contacts-journey still ships layouts compiled against MDS 7 StateView APIs:
+        - rcj_contact_state_view.xml uses app:iconBackground="?stateViewIconBackground"
+        - MDS 9 removed iconBackground from StateView and dropped stateViewIconBackground
 
-        This declares the attribute name only — not a color override. The runtime
-        value is set in themes.xml from Theme.Backbase / design-system tokens.
+        These entries declare names only for resource linking. Runtime values come from
+        Theme.Backbase.Premium / design-system tokens (see themes.xml).
 
-        Not needed on main: main does not bundle contacts-journey. Safe to delete
-        once contacts-journey ships layouts compiled against MDS 9 without this attr.
+        Not required on main (no contacts-journey in the app bundle). Remove when
+        contacts-journey ships MDS-9-native layouts without these references.
     -->
+
     <attr name="stateViewIconBackground" format="reference|color" />
+
+    <!-- Re-declare StateView styleable attr dropped in MDS 9 for journey AAR linking -->
+    <declare-styleable name="StateView">
+        <attr name="iconBackground" format="reference|color" />
+    </declare-styleable>
 </resources>
