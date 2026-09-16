@@ -4,8 +4,5 @@
     <style name="AppTheme" parent="Theme.Backbase.Premium">
         <item name="iconAppLogoSquare">@drawable/ic_backbase_logo_square</item>
         <item name="iconAppLogoWide">@drawable/backbase_logo</item>
-        <!-- contacts-journey 8.x / MDS 7 StateView bridge; see attrs.xml -->
-        <item name="stateViewIconBackground">?colorBackgroundBrandSubtle</item>
-        <item name="iconBackground">?stateViewIconBackground</item>
     </style>
 </resources>
