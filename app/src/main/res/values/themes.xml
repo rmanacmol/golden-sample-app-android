@@ -4,5 +4,7 @@
     <style name="AppTheme" parent="Theme.Backbase.Premium">
         <item name="iconAppLogoSquare">@drawable/ic_backbase_logo_square</item>
         <item name="iconAppLogoWide">@drawable/backbase_logo</item>
+        <!-- Runtime value for contacts-journey 8.x StateView; see attrs.xml re AAPT linking -->
+        <item name="stateViewIconBackground">?colorBackgroundBrandSubtle</item>
     </style>
 </resources>
